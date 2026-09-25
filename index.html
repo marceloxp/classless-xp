@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>classless-xp</title>
+    <link id="theme-css" rel="stylesheet" href="./xp-001/style.css">
+</head>
+<body>
+
+    <nav aria-label="Seletor de tema">
+        <strong>classless-xp</strong>
+        <form id="theme-form">
+            <label for="theme-picker">Tema</label>
+            <select id="theme-picker" name="theme">
+                <option value="xp-001">xp-001 — Dark editorial</option>
+            </select>
+        </form>
+    </nav>
+
+    <header>
+        <small>Kitchen sink</small>
+        <h1>HTML semântico, temas drop-in</h1>
+        <p>Esta página é o contrato visual: o mesmo markup, um stylesheet por pasta <code>xp-*</code>. Sem classes no conteúdo.</p>
+    </header>
+
+    <nav aria-label="Nesta página">
+        <ul>
+            <li><a href="#tipografia">Tipografia</a></li>
+            <li><a href="#listas">Listas</a></li>
+            <li><a href="#cartoes">Cartões</a></li>
+            <li><a href="#tabela">Tabela</a></li>
+            <li><a href="#midia">Mídia</a></li>
+            <li><a href="#formularios">Formulários</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="tipografia">
+            <h2>Tipografia</h2>
+            <p>Parágrafo com <a href="#tipografia">link</a>, <strong>negrito</strong>, <em>itálico</em>, <mark>marca</mark>, <code>código</code>, <kbd>Ctrl</kbd>+<kbd>K</kbd>, <abbr title="HyperText Markup Language">HTML</abbr>, <ins>inserido</ins> e <del>removido</del>. Texto auxiliar fica em <small>small</small>, com subscrito H<sub>2</sub>O e sobrescrito x<sup>2</sup>.</p>
+
+            <blockquote>
+                <p>Blockquote: ênfase e cor vêm da tag, não de classe nem de <code>style</code> inline.</p>
+            </blockquote>
+
+            <aside>
+                <p><strong>Aside</strong> é nota ou callout. <code>section</code> sem <code>article</code> filho continua em fluxo normal — não é grid.</p>
+            </aside>
+
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <h6>Heading 6</h6>
+        </section>
+
+        <section id="listas">
+            <h2>Listas</h2>
+            <ul>
+                <li>Item não ordenado</li>
+                <li>Aninhado
+                    <ul>
+                        <li>Filho</li>
+                        <li>Outro filho</li>
+                    </ul>
+                </li>
+                <li>Último item</li>
+            </ul>
+            <ol>
+                <li>Primeiro</li>
+                <li>Segundo</li>
+                <li>Terceiro</li>
+            </ol>
+            <dl>
+                <dt>small + h1/h2/h3</dt>
+                <dd>Eyebrow. Só quando o <code>small</code> é irmão imediatamente anterior do título.</dd>
+                <dt>nav ul</dt>
+                <dd>Menu horizontal, sem bullets.</dd>
+                <dt>section &gt; article</dt>
+                <dd>Grid de cartões. Qualquer outra <code>section</code> é só um bloco.</dd>
+            </dl>
+        </section>
+
+        <section id="cartoes">
+            <h2>Cartões</h2>
+            <p><code>article</code> filhos diretos viram cartões. Título e parágrafo desta <code>section</code> ocupam a linha inteira; o grid vale só para os artigos.</p>
+            <article>
+                <h3>Sem classes</h3>
+                <p>O HTML desta página não usa <code>class</code>. O picker é o único JS: troca o <code>&lt;link&gt;</code> do tema.</p>
+            </article>
+            <article>
+                <h3>Um HTML</h3>
+                <p>Temas novos entram como <code>xp-002/style.css</code> e uma linha no seletor. O markup não muda.</p>
+            </article>
+            <article>
+                <h3>Tags como API</h3>
+                <p>Cartão, eyebrow e menu nascem do aninhamento. Se precisa de classe, o padrão quebrou.</p>
+            </article>
+        </section>
+
+        <section id="tabela">
+            <h2>Tabela</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tema</th>
+                        <th>Pasta</th>
+                        <th>Notas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dark editorial</td>
+                        <td><code>xp-001</code></td>
+                        <td>Primeiro experimento. Colunas não têm cor própria.</td>
+                    </tr>
+                    <tr>
+                        <td>Paper report</td>
+                        <td><code>xp-002</code></td>
+                        <td>Papel creme, serif de título, cartões coloridos.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="midia">
+            <h2>Mídia e extras</h2>
+            <figure>
+                <img width="960" height="240" alt="Faixa de amostra do tema" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='960' height='240' viewBox='0 0 960 240'%3E%3Crect width='960' height='240' fill='%231e293b'/%3E%3Crect x='0' y='180' width='960' height='60' fill='%23334155'/%3E%3Ctext x='48' y='110' fill='%237dd3fc' font-family='system-ui,sans-serif' font-size='28' font-weight='700'%3Exp-001%3C/text%3E%3Ctext x='48' y='148' fill='%2394a3b8' font-family='system-ui,sans-serif' font-size='16'%3Edark editorial%3C/text%3E%3C/svg%3E">
+                <figcaption>Figure + figcaption. Imagem em SVG para o sink não depender de arquivo externo.</figcaption>
+            </figure>
+
+            <details>
+                <summary>Details / summary</summary>
+                <p>Conteúdo recolhível. Útil para notas longas sem inventar accordion com classe.</p>
+            </details>
+
+            <pre><code>link rel="stylesheet" href="./xp-001/style.css"
+?theme=xp-001</code></pre>
+
+            <p>
+                <button type="button">Botão</button>
+                <button type="button" disabled>Desabilitado</button>
+            </p>
+            <p>
+                <progress value="70" max="100">70%</progress>
+            </p>
+        </section>
+
+        <section id="formularios">
+            <h2>Formulários</h2>
+            <form action="#" method="get">
+                <label for="nome">Nome</label>
+                <input id="nome" name="nome" type="text" placeholder="Ada Lovelace" autocomplete="name">
+
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" placeholder="ada@example.com" autocomplete="email">
+
+                <label for="tema-fav">Select</label>
+                <select id="tema-fav" name="tema-fav">
+                    <option>Dark editorial</option>
+                    <option>Paper report</option>
+                </select>
+
+                <label for="bio">Textarea</label>
+                <textarea id="bio" name="bio" placeholder="Notas"></textarea>
+
+                <fieldset>
+                    <legend>Escolhas</legend>
+                    <label><input type="checkbox" name="check" checked> Checkbox</label>
+                    <label><input type="radio" name="radio" value="a" checked> Radio A</label>
+                    <label><input type="radio" name="radio" value="b"> Radio B</label>
+                </fieldset>
+
+                <p>
+                    <input type="submit" value="Enviar">
+                    <input type="reset" value="Limpar">
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>classless-xp — o seletor troca o tema; o HTML permanece. Contrato no <a href="./README.md">README</a>.</p>
+    </footer>
+
+    <script>
+        const THEMES = [
+            { id: 'xp-001', label: 'xp-001 — Dark editorial' },
+            { id: 'xp-002', label: 'xp-002 — Paper report' },
+        ];
+
+        const link = document.getElementById('theme-css');
+        const form = document.getElementById('theme-form');
+        const select = document.getElementById('theme-picker');
+
+        function validId(id) {
+            return THEMES.some((theme) => theme.id === id) ? id : THEMES[0].id;
+        }
+
+        function currentId() {
+            const fromQuery = new URLSearchParams(location.search).get('theme');
+            if (fromQuery) return validId(fromQuery);
+            try {
+                const saved = localStorage.getItem('classless-xp-theme');
+                if (saved) return validId(saved);
+            } catch (e) { /* private mode */ }
+            return THEMES[0].id;
+        }
+
+        function applyTheme(id, persist) {
+            const themeId = validId(id);
+            link.href = './' + themeId + '/style.css';
+            select.value = themeId;
+            const url = new URL(location.href);
+            url.searchParams.set('theme', themeId);
+            history.replaceState(null, '', url);
+            if (persist) {
+                try { localStorage.setItem('classless-xp-theme', themeId); } catch (e) { /* ignore */ }
+            }
+        }
+
+        select.replaceChildren(...THEMES.map((theme) => {
+            const option = document.createElement('option');
+            option.value = theme.id;
+            option.textContent = theme.label;
+            return option;
+        }));
+
+        applyTheme(currentId(), false);
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            applyTheme(select.value, true);
+        });
+
+        select.addEventListener('change', () => applyTheme(select.value, true));
+
+        document.querySelector('#formularios form')?.addEventListener('submit', (event) => {
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

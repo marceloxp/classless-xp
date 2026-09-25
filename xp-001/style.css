@@ -1,0 +1,538 @@
+/* ==========================================================================
+   classless-xp / xp-001 — Dark editorial
+   Contrato: ver README.md
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  --bg-color: #121212;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --accent: #7dd3fc;
+  --accent-2: #6ee7b7;
+
+  --surface-bg: #1e293b;
+  --surface-border: #334155;
+
+  --danger: #fca5a5;
+
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --radius: 8px;
+  --max-width: 1000px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 640px) {
+  body { padding: 1.25rem; }
+  h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.65rem; }
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Tipografia
+   -------------------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 3rem; margin-top: 0.5em; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 1rem; color: var(--text-secondary); }
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+strong, b {
+  color: #fff;
+  font-weight: 600;
+}
+
+small {
+  font-size: 0.85em;
+  color: var(--text-secondary);
+}
+
+/* Eyebrow: <small> imediatamente antes de um título */
+small:has(+ :is(h1, h2, h3)) {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0;
+}
+
+small:has(+ :is(h1, h2, h3)) + :is(h1, h2, h3) {
+  margin-top: 0.35em;
+}
+
+a {
+  color: var(--accent-2);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+blockquote {
+  margin: 0 0 1.5rem;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  color: var(--text-secondary);
+  border-left: 4px solid var(--surface-border);
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+code, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+code {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+pre {
+  background-color: var(--surface-bg);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin: 0 0 1.5rem;
+  line-height: 1.45;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.9em;
+}
+
+kbd {
+  display: inline-block;
+  background: var(--surface-bg);
+  border: 1px solid var(--surface-border);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  color: #fff;
+}
+
+mark {
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
+  color: #fff;
+  padding: 0.1em 0.25em;
+  border-radius: 3px;
+}
+
+ins {
+  color: var(--accent-2);
+  text-decoration: none;
+}
+
+del {
+  color: var(--danger);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--surface-border);
+  margin: 2.5rem 0;
+}
+
+/* --------------------------------------------------------------------------
+   Landmarks
+   -------------------------------------------------------------------------- */
+
+header {
+  margin-bottom: 2rem;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+}
+
+nav li + li {
+  margin-top: 0;
+}
+
+nav form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin: 0;
+}
+
+nav label {
+  display: inline;
+  margin: 0;
+}
+
+body > nav:first-child {
+  padding-bottom: 1.25rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--surface-border);
+}
+
+body > nav:first-child select {
+  width: auto;
+}
+
+footer, figcaption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+footer {
+  margin-top: 3rem;
+  border-top: 1px solid var(--surface-border);
+  padding-top: 1rem;
+}
+
+aside {
+  background-color: var(--surface-bg);
+  border: 1px solid var(--surface-border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: 0 0 1.5rem;
+  color: var(--text-secondary);
+}
+
+aside > :first-child { margin-top: 0; }
+aside > :last-child { margin-bottom: 0; }
+
+/* --------------------------------------------------------------------------
+   Cartões: só section com article filhos diretos
+   -------------------------------------------------------------------------- */
+
+section:has(> article) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+section:has(> article) > :not(article) {
+  grid-column: 1 / -1;
+}
+
+section:has(> article) > article {
+  background-color: var(--surface-bg);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: 0;
+}
+
+section:has(> article) > article > :first-child {
+  margin-top: 0;
+}
+
+section:has(> article) > article > :last-child {
+  margin-bottom: 0;
+}
+
+section:has(> article) > article h3 {
+  color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   Listas
+   -------------------------------------------------------------------------- */
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin: 0 0 1.5rem;
+}
+
+li + li {
+  margin-top: 0.25rem;
+}
+
+dl {
+  margin: 0 0 1.5rem;
+}
+
+dt {
+  font-weight: 600;
+  color: #fff;
+  margin-top: 0.75rem;
+}
+
+dt:first-child {
+  margin-top: 0;
+}
+
+dd {
+  margin: 0.25rem 0 0 1.25rem;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Tabelas
+   -------------------------------------------------------------------------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+}
+
+th, td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--surface-border);
+  vertical-align: top;
+}
+
+th {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+td {
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Mídia
+   -------------------------------------------------------------------------- */
+
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  margin: 0 0 1.5rem;
+}
+
+figure img {
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--surface-border);
+}
+
+figcaption {
+  margin-top: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Detalhes
+   -------------------------------------------------------------------------- */
+
+details {
+  background-color: var(--surface-bg);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  margin: 0 0 1.5rem;
+}
+
+details + details {
+  margin-top: -0.75rem;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #fff;
+}
+
+details[open] summary {
+  margin-bottom: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   Formulários
+   -------------------------------------------------------------------------- */
+
+form {
+  margin: 0 0 1.5rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+label:has(+ input),
+label:has(+ select),
+label:has(+ textarea) {
+  margin-top: 1rem;
+}
+
+label:has(+ input):first-child,
+label:has(+ select):first-child,
+label:has(+ textarea):first-child {
+  margin-top: 0;
+}
+
+input, select, textarea, button {
+  font: inherit;
+  color: var(--text-primary);
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="reset"]),
+select,
+textarea {
+  width: 100%;
+  background-color: var(--surface-bg);
+  border: 1px solid var(--surface-border);
+  border-radius: 6px;
+  padding: 0.55rem 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  margin-right: 0.5rem;
+  accent-color: var(--accent);
+}
+
+label:has(> input[type="checkbox"]),
+label:has(> input[type="radio"]) {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  margin: 0.4rem 0;
+}
+
+fieldset {
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+}
+
+legend {
+  font-weight: 600;
+  color: #fff;
+  padding: 0 0.35rem;
+}
+
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+  display: inline-block;
+  background-color: var(--accent);
+  color: #0b1220;
+  font-weight: 600;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.55rem 1.1rem;
+  margin: 0.5rem 0.5rem 0 0;
+  cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  filter: brightness(1.08);
+}
+
+input[type="reset"],
+button[type="reset"] {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--surface-border);
+}
+
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   Extras
+   -------------------------------------------------------------------------- */
+
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+progress {
+  width: 100%;
+  accent-color: var(--accent);
+}
